@@ -59,3 +59,6 @@ class Room:
 
     def add_song_playlist_to_room(self, playlist):
         self.playlist += playlist
+
+    def swap_room_playlist(self, playlist):
+        self.playlist = playlist
