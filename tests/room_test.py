@@ -6,9 +6,9 @@ from classes.guest import Guest
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
-        self.room_1 = Room("Hip Hop")
-        self.room_2 = Room("Soul")
-        self.room_3 = Room("Rock")
+        self.room_1 = Room("Hip Hop", 3)
+        self.room_2 = Room("Soul", 4)
+        self.room_3 = Room("Rock", 4)
         
         self.song_1 = Song("Stayin' Alive", "Bee Gees")
         self.song_2 = Song("The Boss", "Diana Ross")
@@ -21,6 +21,8 @@ class TestRoom(unittest.TestCase):
         self.guest_3 = Guest("Holly")
         self.guest_4 = Guest("Paul")
         self.guest_5 = Guest("Maria")
+
+    # MVP tests:
 
     def test_room_has_name(self):
         self.assertEqual("Hip Hop", self.room_1.name)
@@ -55,3 +57,12 @@ class TestRoom(unittest.TestCase):
         expected = [self.guest_2]
         self.assertEqual(expected, self.room_1.guests)
         self.assertEqual(1, len(self.room_1.guests))
+    
+    # Extension tests:
+
+    def test_check_space_in_room(self):
+        self.room_1.check_in_guest(self.guest_1)
+        self.room_1.check_in_guest(self.guest_2)
+        self.room_1.check_in_guest(self.guest_3)
+        self.room_1.check_in_guest(self.guest_4)
+        self.assertEqual(3, len(self.room_1.guests))

@@ -1,6 +1,7 @@
 class Room:
-    def __init__(self, name):
+    def __init__(self, name, max_guests):
         self.name = name
+        self.max_guests = max_guests
         self.playlist = []
         self.guests = []
 
@@ -8,7 +9,8 @@ class Room:
         self.playlist.append(song)
 
     def check_in_guest(self, guest):
-        self.guests.append(guest)
+        if len(self.guests) < self.max_guests:
+            self.guests.append(guest)
 
     def check_out_guest(self, guest):
         if guest in self.guests:
