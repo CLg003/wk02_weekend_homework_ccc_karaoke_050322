@@ -57,7 +57,7 @@ class Room:
             self.till += total_bill_to_pay
             self.guest_tabs.pop(guest)
 
-    def add_song_playlist_to_room(self, playlist):
+    def add_playlist_to_room(self, playlist):
         self.playlist += playlist
 
     def swap_room_playlist(self, playlist):
