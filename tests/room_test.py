@@ -113,4 +113,14 @@ class TestRoom(unittest.TestCase):
         expected = {self.guest_1 : 37}
         self.assertEqual(expected, self.room_1.guest_tabs)
 
-    # def test_guest_tab_paid(self):
+    def test_guest_tab_paid(self):
+        self.room_1.add_entry_fee_to_tab(self.guest_1)
+        self.room_1.add_bar_drink_to_tab(self.guest_1, self.drink_2)
+        self.room_1.add_bar_drink_to_tab(self.guest_1, self.drink_3)
+        self.room_1.add_bar_drink_to_tab(self.guest_1, self.drink_4)
+        self.room_1.clear_fully_paid_guest_tab(self.guest_1)
+        expected = {}
+        self.assertEqual(expected, self.room_1.guest_tabs)
+        self.assertEqual(13, self.guest_1.cash)
+        self.assertEqual(137, self.room_1.till)
+

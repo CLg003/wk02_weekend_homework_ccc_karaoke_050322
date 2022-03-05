@@ -47,3 +47,10 @@ class Room:
     def add_bar_drink_to_tab(self, guest, drink):
         self.start_new_guest_tab(guest)
         self.guest_tabs[guest] += drink.price
+
+    def clear_fully_paid_guest_tab(self, guest):
+        total_bill_to_pay = self.guest_tabs[guest]
+        if guest.cash >= total_bill_to_pay:
+            guest.cash -= total_bill_to_pay
+            self.till += total_bill_to_pay
+            self.guest_tabs.pop(guest)
