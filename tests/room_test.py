@@ -6,9 +6,9 @@ from classes.guest import Guest
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
-        self.room_1 = Room("Hip Hop", 3)
-        self.room_2 = Room("Soul", 4)
-        self.room_3 = Room("Rock", 4)
+        self.room_1 = Room("Hip Hop", 3, 100.00)
+        self.room_2 = Room("Soul", 4, 100.00)
+        self.room_3 = Room("Rock", 4, 100.00)
         
         self.song_1 = Song("Stayin' Alive", "Bee Gees")
         self.song_2 = Song("The Boss", "Diana Ross")
@@ -66,6 +66,13 @@ class TestRoom(unittest.TestCase):
         self.room_1.check_in_guest(self.guest_3)
         self.room_1.check_in_guest(self.guest_4)
         self.assertEqual(3, len(self.room_1.guests))
+
+    def test_room_has_till(self):
+        self.assertEqual(100, self.room_2.till)
+
+    def test_can_increase_till(self):
+        self.room_2.till += 15.00
+        self.assertEqual(115, self.room_2.till)
 
     # def test_take_entry_fee(self):
     #     self.room_1.take_entry_fee(self.guest_1)
