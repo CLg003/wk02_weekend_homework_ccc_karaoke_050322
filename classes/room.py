@@ -38,3 +38,8 @@ class Room:
     def start_new_guest_tab(self, guest):
         if guest not in self.guest_tabs:
             self.guest_tabs[guest] = 0
+
+    def add_entry_fee_to_tab(self, guest):
+        entry_fee = 10.00
+        self.start_new_guest_tab(guest)
+        self.guest_tabs[guest] += entry_fee

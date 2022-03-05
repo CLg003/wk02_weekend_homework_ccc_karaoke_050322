@@ -92,3 +92,9 @@ class TestRoom(unittest.TestCase):
         self.room_1.start_new_guest_tab(self.guest_1)
         expected = {self.guest_1 : 0}
         self.assertEqual(expected, self.room_1.guest_tabs)
+
+    def test_guest_tab_increased(self):
+        self.room_1.start_new_guest_tab(self.guest_1)
+        self.room_1.add_entry_fee_to_tab(self.guest_1)
+        expected = {self.guest_1 : 10}
+        self.assertEqual(expected, self.room_1.guest_tabs)
