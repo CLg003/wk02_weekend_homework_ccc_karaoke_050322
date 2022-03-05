@@ -3,6 +3,7 @@ import unittest
 from classes.room import Room
 from classes.song import Song
 from classes.guest import Guest
+from classes.bar_drink import BarDrink
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
@@ -21,6 +22,12 @@ class TestRoom(unittest.TestCase):
         self.guest_3 = Guest("Holly", 75.00, "Moon River")
         self.guest_4 = Guest("Paul", 20.00, "Lose Yourself")
         self.guest_5 = Guest("Maria", 60.00, "Stayin' Alive")
+
+        self.drink_1 = BarDrink("lager", 3.50)
+        self.drink_2 = BarDrink("prosecco", 19.00)
+        self.drink_3 = BarDrink("cocktail", 6.00)
+        self.drink_4 = BarDrink("coca cola", 2.00)
+        self.drink_5 = BarDrink("water", 0.00)
 
     # MVP tests:
 
@@ -93,8 +100,17 @@ class TestRoom(unittest.TestCase):
         expected = {self.guest_1 : 0}
         self.assertEqual(expected, self.room_1.guest_tabs)
 
-    def test_guest_tab_increased(self):
-        self.room_1.start_new_guest_tab(self.guest_1)
+    def test_guest_tab_increased_entry_fee(self):
         self.room_1.add_entry_fee_to_tab(self.guest_1)
         expected = {self.guest_1 : 10}
         self.assertEqual(expected, self.room_1.guest_tabs)
+
+    def test_guest_tab_increased_bar_drinks(self):
+        self.room_1.add_entry_fee_to_tab(self.guest_1)
+        self.room_1.add_bar_drink_to_tab(self.guest_1, self.drink_2)
+        self.room_1.add_bar_drink_to_tab(self.guest_1, self.drink_3)
+        self.room_1.add_bar_drink_to_tab(self.guest_1, self.drink_4)
+        expected = {self.guest_1 : 37}
+        self.assertEqual(expected, self.room_1.guest_tabs)
+
+    # def test_guest_tab_paid(self):

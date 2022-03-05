@@ -6,10 +6,6 @@ from classes.bar_drink import BarDrink
 class TestBarDrink(unittest.TestCase):
     def setUp(self):
         self.drink_1 = BarDrink("lager", 3.50)
-        self.drink_2 = BarDrink("prosecco", 19.00)
-        self.drink_3 = BarDrink("cocktail", 6.00)
-        self.drink_4 = BarDrink("coca cola", 2.00)
-        self.drink_5 = BarDrink("water", 0.00)
     
     # Advanced extension tests:
 

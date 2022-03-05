@@ -43,3 +43,7 @@ class Room:
         entry_fee = 10.00
         self.start_new_guest_tab(guest)
         self.guest_tabs[guest] += entry_fee
+    
+    def add_bar_drink_to_tab(self, guest, drink):
+        self.start_new_guest_tab(guest)
+        self.guest_tabs[guest] += drink.price
