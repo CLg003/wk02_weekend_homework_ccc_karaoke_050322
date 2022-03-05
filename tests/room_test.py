@@ -16,11 +16,11 @@ class TestRoom(unittest.TestCase):
         self.song_4 = Song("Lose Yourself", "Eminem")
         self.song_5 = Song("This Time (I'm Gonna Try It My Way)", "DJ Shadow")
 
-        self.guest_1 = Guest("Sandy")
-        self.guest_2 = Guest("Danny")
-        self.guest_3 = Guest("Holly")
-        self.guest_4 = Guest("Paul")
-        self.guest_5 = Guest("Maria")
+        self.guest_1 = Guest("Sandy", 50.00)
+        self.guest_2 = Guest("Danny", 45.00)
+        self.guest_3 = Guest("Holly", 75.00)
+        self.guest_4 = Guest("Paul", 20.00)
+        self.guest_5 = Guest("Maria", 60.00)
 
     # MVP tests:
 
@@ -66,3 +66,7 @@ class TestRoom(unittest.TestCase):
         self.room_1.check_in_guest(self.guest_3)
         self.room_1.check_in_guest(self.guest_4)
         self.assertEqual(3, len(self.room_1.guests))
+
+    # def test_take_entry_fee(self):
+    #     self.room_1.take_entry_fee(self.guest_1)
+    #     self.assertEqual()
