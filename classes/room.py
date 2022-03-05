@@ -25,5 +25,7 @@ class Room:
 
     def find_song_by_title(self, song_title):
         for song in self.playlist:
-            if song.title == song_title:
+            if song_title == song.title:
                 return song
+        #         return True    
+        # return False
