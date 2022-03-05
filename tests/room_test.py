@@ -1,9 +1,30 @@
 import unittest
+
 from classes.room import Room
+from classes.song import Song
+from classes.guest import Guest
 
 class TestRoom(unittest.TestCase):
     def setUp(self):
-        pass
+        self.room_1 = Room("Hip Hop")
+        self.room_2 = Room("Soul")
+        self.room_3 = Room("Rock")
+        
+        self.song_1 = Song("Stayin' Alive", "Bee Gees")
+        self.song_2 = Song("The Boss", "Diana Ross")
+        self.song_3 = Song("Everything Now", "Arcade Fire")
+        self.song_4 = Song("Lose Yourself", "Eminem")
+        self.song_5 = Song("This Time (I'm Gonna Try It My Way)", "DJ Shadow")
+
+        self.guest_1 = Guest("Sandy")
+        self.guest_2 = Guest("Danny")
+        self.guest_3 = Guest("Holly")
+        self.guest_4 = Guest("Paul")
+        self.guest_5 = Guest("Maria")
 
     def test_room_has_name(self):
-        pass
+        self.assertEqual("Hip Hop", self.room_1.name)
+
+    def test_can_update_room_name(self):
+        self.room_2.name = "Heavy Metal"
+        self.assertEqual("Heavy Metal", self.room_2.name)
