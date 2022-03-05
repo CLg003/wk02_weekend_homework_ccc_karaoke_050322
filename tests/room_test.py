@@ -148,3 +148,10 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(40, self.guest_1.cash)
         self.assertEqual(110, self.room_1.till)
 
+    def test_add_playlist_to_room(self):
+        self.room_1.add_song_to_playlist(self.song_1)
+        self.room_1.add_song_to_playlist(self.song_2)
+        self.room_1.add_song_playlist_to_room(self.playlist_2)
+        self.assertEqual([self.song_1, self.song_2, self.song_4, self.song_5, self.song_6], self.room_1.playlist)
+    
+
