@@ -16,3 +16,9 @@ class Room:
     def check_out_guest(self, guest):
         if guest in self.guests:
             self.guests.remove(guest)
+
+    def take_entry_fee(self, guest):
+        entry_fee = 10.00
+        if guest.cash >= entry_fee:
+            guest.cash -= entry_fee
+            self.till += entry_fee
