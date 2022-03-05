@@ -47,3 +47,11 @@ class TestRoom(unittest.TestCase):
         expected = [self.guest_1, self.guest_2]
         self.assertEqual(expected, self.room_1.guests)
         self.assertEqual(2, len(self.room_1.guests))
+
+    def test_check_out_guest(self):
+        self.room_1.check_in_guest(self.guest_1)
+        self.room_1.check_in_guest(self.guest_2)
+        self.room_1.check_out_guest(self.guest_1)
+        expected = [self.guest_2]
+        self.assertEqual(expected, self.room_1.guests)
+        self.assertEqual(1, len(self.room_1.guests))
