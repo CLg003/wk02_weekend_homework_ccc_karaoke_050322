@@ -39,3 +39,11 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_song_to_playlist(self.song_1)
         expected = [self.song_1]
         self.assertEqual(expected, self.room_1.playlist)
+        self.assertEqual(1, len(self.room_1.playlist))
+    
+    def test_check_in_guest(self):
+        self.room_1.check_in_guest(self.guest_1)
+        self.room_1.check_in_guest(self.guest_2)
+        expected = [self.guest_1, self.guest_2]
+        self.assertEqual(expected, self.room_1.guests)
+        self.assertEqual(2, len(self.room_1.guests))
