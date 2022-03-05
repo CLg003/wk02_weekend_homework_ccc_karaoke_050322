@@ -16,11 +16,11 @@ class TestRoom(unittest.TestCase):
         self.song_4 = Song("Lose Yourself", "Eminem")
         self.song_5 = Song("This Time (I'm Gonna Try It My Way)", "DJ Shadow")
 
-        self.guest_1 = Guest("Sandy", 50.00)
-        self.guest_2 = Guest("Danny", 45.00)
-        self.guest_3 = Guest("Holly", 75.00)
-        self.guest_4 = Guest("Paul", 20.00)
-        self.guest_5 = Guest("Maria", 60.00)
+        self.guest_1 = Guest("Sandy", 50.00, "Everything Now")
+        self.guest_2 = Guest("Danny", 45.00, "Greased Lightning")
+        self.guest_3 = Guest("Holly", 75.00, "Moon River")
+        self.guest_4 = Guest("Paul", 20.00, "Lose Yourself")
+        self.guest_5 = Guest("Maria", 60.00, "Stayin' Alive")
 
     # MVP tests:
 
@@ -78,3 +78,7 @@ class TestRoom(unittest.TestCase):
         self.room_1.take_entry_fee(self.guest_1)
         self.assertEqual(40, self.guest_1.cash)
         self.assertEqual(110, self.room_1.till)
+
+    # Advanced extension tests:
+
+    

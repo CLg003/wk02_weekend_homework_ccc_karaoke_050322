@@ -5,6 +5,8 @@ class TestSong(unittest.TestCase):
     def setUp(self):
         self.song_1 = Song("Stayin' Alive", "Bee Gees")
 
+    # MVP tests:
+    
     def test_song_has_title(self):
         self.assertEqual("Stayin' Alive", self.song_1.title)
 
