@@ -15,9 +15,11 @@ class Room:
     def check_in_guest(self, guest):
         if len(self.guests) < self.max_guests: # Extensions condition
             self.guests.append(guest)
+            self.add_entry_fee_to_tab(guest) # Advanced extensions
 
     def check_out_guest(self, guest):
         if guest in self.guests:
+            self.clear_fully_paid_guest_tab(guest) # Advanced extensions
             self.guests.remove(guest)
 
 # Extensions method:

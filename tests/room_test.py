@@ -16,6 +16,10 @@ class TestRoom(unittest.TestCase):
         self.song_3 = Song("Everything Now", "Arcade Fire")
         self.song_4 = Song("Lose Yourself", "Eminem")
         self.song_5 = Song("This Time (I'm Gonna Try It My Way)", "DJ Shadow")
+        self.song_6 = Song("Watermelon Sugar", "Harry Styles")
+
+        self.playlist_1 = [self.song_1, self.song_2, self.song_3]
+        self.playlist_2 = [self.song_4, self.song_5, self.song_6]
 
         self.guest_1 = Guest("Sandy", 50.00, "Everything Now")
         self.guest_2 = Guest("Danny", 45.00, "Greased Lightning")
@@ -123,4 +127,24 @@ class TestRoom(unittest.TestCase):
         self.assertEqual(expected, self.room_1.guest_tabs)
         self.assertEqual(13, self.guest_1.cash)
         self.assertEqual(137, self.room_1.till)
+
+    def test_check_in_guest_advanced(self):
+        self.room_1.check_in_guest(self.guest_1)
+        self.room_1.check_in_guest(self.guest_2)
+        expected = [self.guest_1, self.guest_2]
+        self.assertEqual(expected, self.room_1.guests)
+        self.assertEqual(10, self.room_1.guest_tabs[self.guest_1])
+        self.assertEqual(10, self.room_1.guest_tabs[self.guest_2])
+
+
+    def test_check_out_guest_advanced(self):
+        self.room_1.check_in_guest(self.guest_1)
+        self.room_1.check_in_guest(self.guest_2)
+        self.room_1.check_out_guest(self.guest_1)
+        expected = [self.guest_2]
+        self.assertEqual(expected, self.room_1.guests)
+        self.assertEqual(1, len(self.room_1.guests))
+        self.assertEqual({self.guest_2 : 10}, self.room_1.guest_tabs)
+        self.assertEqual(40, self.guest_1.cash)
+        self.assertEqual(110, self.room_1.till)
 
