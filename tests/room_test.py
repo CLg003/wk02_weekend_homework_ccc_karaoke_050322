@@ -81,4 +81,9 @@ class TestRoom(unittest.TestCase):
 
     # Advanced extension tests:
 
-    
+    def test_can_find_song_by_title(self):
+        self.room_1.add_song_to_playlist(self.song_1)
+        self.room_1.add_song_to_playlist(self.song_1)
+        self.room_1.add_song_to_playlist(self.song_3)
+        result = self.room_1.find_song_by_title("Everything Now")
+        self.assertEqual(self.song_3, result)

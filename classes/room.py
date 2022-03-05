@@ -22,3 +22,8 @@ class Room:
         if guest.cash >= entry_fee:
             guest.cash -= entry_fee
             self.till += entry_fee
+
+    def find_song_by_title(self, song_title):
+        for song in self.playlist:
+            if song.title == song_title:
+                return song
