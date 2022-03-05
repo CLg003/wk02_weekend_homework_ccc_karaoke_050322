@@ -47,4 +47,8 @@ class TestGuest(unittest.TestCase):
         self.room_1.add_song_to_playlist(self.song_3)
         result = self.guest_1.cheer_for_favourite_song(self.room_1, self.guest_1.favourite_song)
         self.assertEqual("Whoo, they have my favourite song!", result)
+
+    def test_sad_if_favourite_song_not_in_playlist(self):
+        result = self.guest_1.cheer_for_favourite_song(self.room_1, self.guest_1.favourite_song)
+        self.assertEqual("Aw, I can't sing my favourite song.", result)
         

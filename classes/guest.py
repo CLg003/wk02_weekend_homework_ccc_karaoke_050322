@@ -10,7 +10,7 @@ class Guest:
     def cheer_for_favourite_song(self, room, song_title):
         if room.find_song_by_title(song_title):
             return "Whoo, they have my favourite song!"
-        return "Aw, my favourite song isn't on here."
+        return "Aw, I can't sing my favourite song."
 
 # guest_1 = Guest("Sandy", 50.00, "Everything Now")
 
