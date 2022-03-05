@@ -28,3 +28,6 @@ class TestRoom(unittest.TestCase):
     def test_can_update_room_name(self):
         self.room_2.name = "Heavy Metal"
         self.assertEqual("Heavy Metal", self.room_2.name)
+
+    def test_room_has_playlist(self):
+        self.assertEqual([], self.room_1.playlist)
