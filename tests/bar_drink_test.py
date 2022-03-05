@@ -1,3 +1,5 @@
+# Advanced extension additional class
+
 import unittest
 from classes.bar_drink import BarDrink
 
@@ -9,6 +11,8 @@ class TestBarDrink(unittest.TestCase):
         self.drink_4 = BarDrink("coca cola", 2.00)
         self.drink_5 = BarDrink("water", 0.00)
     
+    # Advanced extension tests:
+
     def test_drink_has_name(self):
         self.assertEqual("lager", self.drink_1.name)
 

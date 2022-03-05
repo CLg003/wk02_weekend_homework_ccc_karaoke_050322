@@ -87,3 +87,8 @@ class TestRoom(unittest.TestCase):
         self.room_1.add_song_to_playlist(self.song_3)
         result = self.room_1.find_song_by_title("Everything Now")
         self.assertEqual(self.song_3, result)
+
+    def test_new_guest_tab_added(self):
+        self.room_1.start_new_guest_tab(self.guest_1)
+        expected = {self.guest_1 : 0}
+        self.assertEqual(expected, self.room_1.guest_tabs)

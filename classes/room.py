@@ -1,10 +1,11 @@
 class Room:
     def __init__(self, name, max_guests, till):
         self.name = name
-        self.max_guests = max_guests
+        self.max_guests = max_guests # Extensions property
         self.till = till
         self.playlist = []
         self.guests = []
+        self.guest_tabs = {} # Advanced extensions property
 
 # MVP methods:
 
@@ -33,3 +34,7 @@ class Room:
         for song in self.playlist:
             if song_title == song.title:
                 return song
+
+    def start_new_guest_tab(self, guest):
+        if guest not in self.guest_tabs:
+            self.guest_tabs[guest] = 0
